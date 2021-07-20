@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:whatsappclone/pages/camerascreen.dart';
 
 import 'callscreen.dart';
 import 'chatscreen.dart';
@@ -32,11 +31,9 @@ class _HomePageState extends State<HomePage>
       ..addListener(() {
         // print(_tabController.index);
         if (_tabController.index == 1) {
-          
           showfab.value = true;
           currentindex.value = 0;
           showstatus.value = false;
-          
         }
         //In status screen make showstatus to true
         else if (_tabController.index == 2) {
@@ -115,7 +112,7 @@ class _HomePageState extends State<HomePage>
       body: TabBarView(
         controller: _tabController,
         children: [
-          Container(color:Colors.black),
+          const Precamera(),
           ChatScreen(),
           StatusScreen(),
           CallsScreen(),
@@ -257,6 +254,17 @@ class _HomePageState extends State<HomePage>
           ],
         )
       ],
+    );
+  }
+}
+
+class Precamera extends StatelessWidget {
+  const Precamera({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
     );
   }
 }
