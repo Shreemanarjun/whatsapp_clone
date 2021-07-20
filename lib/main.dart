@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:whatsappclone/Models/providers/user_provider.dart';
-import 'package:whatsappclone/initialBindings.dart';
+import 'package:whatsappclone/models/providers/user_provider.dart';
+import 'package:whatsappclone/initialbindings.dart';
 
 import 'Pages/homepage.dart';
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ThemeData()
               .colorScheme
               .copyWith(secondary: const Color(0xff25D366))),
-              //responsive framework for showing same design in al device
+      //responsive framework for showing same design in al device
       builder: (context, widget) => ResponsiveWrapper.builder(widget,
           maxWidth: 1200,
           minWidth: 480,
@@ -39,12 +39,14 @@ class MyApp extends StatelessWidget {
             const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ],
           background: Container(color: const Color(0xFFF5F5F5))),
-          //call the api when app opened
+      //call the api when app opened
       onInit: () async {
         await UserProvider().getUser();
       },
-      home: const HomePage(),
+      getPages: [GetPage(name: "/", page: () => const HomePage())],
       //declare the dependency bindings here for initialize at start
+      initialRoute: "/",
+      home: const HomePage(),
       initialBinding: InitialBinding(),
     );
   }

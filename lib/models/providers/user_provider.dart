@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:whatsappclone/Controllers/chatcontroller.dart';
-import 'package:whatsappclone/Models/chatitemmodel.dart';
-import 'package:whatsappclone/Models/user_model.dart';
+import 'package:whatsappclone/controllers/chatcontroller.dart';
+import 'package:whatsappclone/models/chatitemmodel.dart';
+import 'package:whatsappclone/models/user_model.dart';
 
 //API Provider for User List
 class UserProvider extends GetConnect {
-  final ChatController chatController = Get.find();
+  final ChatController chatController = Get.find<ChatController>();
   Future<void> getUser() async {
     var head = {
       'app-id': '60992da1ea03b472bb9a096b',

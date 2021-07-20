@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:whatsappclone/Controllers/chatcontroller.dart';
-import 'package:whatsappclone/Models/chatitemmodel.dart';
-import 'package:whatsappclone/UIs/circularimage.dart';
+
+import 'package:whatsappclone/models/chatitemmodel.dart';
+import 'package:whatsappclone/uis/circularimage.dart';
+import 'package:whatsappclone/controllers/chatcontroller.dart';
 
 //Chat Screen
 class ChatScreen extends StatelessWidget {
