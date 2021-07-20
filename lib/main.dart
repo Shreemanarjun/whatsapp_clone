@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/camera",
           page: () => const CameraScreen(),
+          transition: Transition.leftToRight
         )
       ],
       //declare the dependency bindings here for initialize at start
