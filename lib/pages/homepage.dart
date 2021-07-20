@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 
 import 'callscreen.dart';
@@ -79,6 +80,7 @@ class _HomePageState extends State<HomePage>
               mainAxisSize: MainAxisSize.min,
               children: [
                 FloatingActionButton(
+                  heroTag: null,
                   onPressed: () {},
                   backgroundColor: Colors.white,
                   mini: true,
@@ -91,6 +93,7 @@ class _HomePageState extends State<HomePage>
                 Padding(
                   padding: const EdgeInsets.only(top: 5),
                   child: FloatingActionButton(
+                    heroTag: null,
                     onPressed: () {},
                     elevation: 10,
                     child: const Icon(Icons.camera_alt),
@@ -100,6 +103,7 @@ class _HomePageState extends State<HomePage>
             );
           } else {
             return FloatingActionButton(
+              heroTag: null,
               onPressed: () {},
               elevation: 10,
               child: Icon(icons[currentindex.value]),

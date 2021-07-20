@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:whatsappclone/controllers/chatcontroller.dart';
 import 'package:whatsappclone/models/chatitemmodel.dart';
+import 'package:whatsappclone/pages/mywpstatus.dart';
 
 //Sttau screen
 class StatusScreen extends StatelessWidget {
@@ -52,7 +53,9 @@ class StatusScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 1.0),
               child: ListTile(
                 tileColor: Colors.white,
-                onTap: () {},
+                onTap: () {
+                  // print(index);
+                },
                 leading: Stack(
                   children: [
                     isRecent
@@ -91,6 +94,11 @@ class StatusScreen extends StatelessWidget {
     return Card(
       elevation: 0,
       child: ListTile(
+        onTap: () {
+          // Get.toNamed("/story");
+          // print("profile");
+          Get.to(() => WPStatus());
+        },
         leading: Stack(
           children: [
             const CircleAvatar(

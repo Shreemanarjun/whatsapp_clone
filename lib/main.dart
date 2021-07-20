@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+
 import 'package:whatsappclone/initialbindings.dart';
 import 'package:whatsappclone/models/providers/user_provider.dart';
 import 'package:whatsappclone/pages/camerascreen.dart';
+import 'package:whatsappclone/pages/mywpstatus.dart';
 
 import 'Pages/homepage.dart';
 
@@ -20,9 +23,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    //used getmaterial app for context less methods
+    //used getmaterial app for context less navigations
     return GetMaterialApp(
-      title: 'Whatsapp CLone',
+      title: 'Whatsapp Clone',
       debugShowCheckedModeBanner: false,
       //whatsapp specific color declaration
       theme: ThemeData(
@@ -48,10 +51,13 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: "/", page: () => const HomePage()),
         GetPage(
-          name: "/camera",
-          page: () => const CameraScreen(),
-          transition: Transition.leftToRight
-        )
+          name: "/wpstatus",
+          page: () => WPStatus(),
+        ),
+        GetPage(
+            name: "/camera",
+            page: () => const CameraScreen(),
+            transition: Transition.leftToRight),
       ],
       //declare the dependency bindings here for initialize at start
       initialRoute: "/",
