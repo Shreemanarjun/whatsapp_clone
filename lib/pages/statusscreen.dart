@@ -121,7 +121,7 @@ class StatusScreen extends StatelessWidget {
           "My Status",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        subtitle: Text("Tap to add status update"),
+        subtitle: const Text("Tap to add status update"),
       ),
     );
   }

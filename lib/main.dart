@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -5,11 +6,13 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import 'package:whatsappclone/initialbindings.dart';
 import 'package:whatsappclone/models/providers/user_provider.dart';
+import 'package:whatsappclone/pages/camerascreen.dart';
 
 import 'Pages/homepage.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   //run flutter app
   runApp(const MyApp());
 }
@@ -45,7 +48,7 @@ class MyApp extends StatelessWidget {
       onInit: () async {
         await UserProvider().getUser();
       },
-      getPages: [GetPage(name: "/", page: () => const HomePage())],
+      getPages: [GetPage(name: "/", page: () => const HomePage()),GetPage(name: "/camera", page:() =>const CameraScreen() ,)],
       //declare the dependency bindings here for initialize at start
       initialRoute: "/",
       home: const HomePage(),

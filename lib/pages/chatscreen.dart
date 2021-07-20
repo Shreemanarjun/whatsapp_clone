@@ -129,7 +129,9 @@ class ChatScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              CircularProgressIndicator(color: Colors.teal,),
+              CircularProgressIndicator(
+                color: Colors.teal,
+              ),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text("Loading Messages"),

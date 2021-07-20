@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  animated_search_bar: ^2.0.0
+  camera_camera: ^2.0.2
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   intl: ^0.17.0

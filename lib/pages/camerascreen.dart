@@ -1,13 +1,16 @@
+import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
 
-//Camera Screen
 class CameraScreen extends StatelessWidget {
-  const CameraScreen({Key key}) : super(key: key);
+  const CameraScreen({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Camera Screen"),
-    );
+    return Scaffold(
+      body: CameraCamera(
+        onFile: (file) => print(file)
+      ),
+      
+);
   }
 }

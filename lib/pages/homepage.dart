@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:get/get.dart';
+import 'package:whatsappclone/pages/camerascreen.dart';
 
 import 'callscreen.dart';
-import 'camerascreen.dart';
 import 'chatscreen.dart';
 import 'statusscreen.dart';
 
@@ -33,9 +32,11 @@ class _HomePageState extends State<HomePage>
       ..addListener(() {
         // print(_tabController.index);
         if (_tabController.index == 1) {
+          
           showfab.value = true;
           currentindex.value = 0;
           showstatus.value = false;
+          
         }
         //In status screen make showstatus to true
         else if (_tabController.index == 2) {
@@ -51,6 +52,7 @@ class _HomePageState extends State<HomePage>
           currentindex.value = 4;
           showstatus.value = false;
         } else {
+          Get.toNamed("/camera");
           showfab.value = false;
           showstatus.value = false;
         }
@@ -113,10 +115,10 @@ class _HomePageState extends State<HomePage>
       body: TabBarView(
         controller: _tabController,
         children: [
-          const CameraScreen(),
+          Container(color:Colors.black),
           ChatScreen(),
           StatusScreen(),
-          const CallsScreen(),
+          CallsScreen(),
         ],
       ),
     );
