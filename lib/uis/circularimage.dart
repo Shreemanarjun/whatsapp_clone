@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 //Circular Avtar Implementation
 class CircularImage extends StatelessWidget {
   final String imagePath;

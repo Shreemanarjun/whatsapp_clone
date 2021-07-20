@@ -25,7 +25,7 @@ class Users {
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     if (data != null) {
-      data['data'] = data.map((k,v) => v.toJson());
+      data['data'] = data.map((k, v) => v.toJson());
     }
     data['total'] = total;
     data['page'] = page;

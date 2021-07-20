@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 
 import 'callscreen.dart';
 import 'camerascreen.dart';
 import 'chatscreen.dart';
 import 'statusscreen.dart';
+
 //All Pages with app bar and floating action button
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -35,7 +37,7 @@ class _HomePageState extends State<HomePage>
           currentindex.value = 0;
           showstatus.value = false;
         }
-        //In status screen make showstatus to true 
+        //In status screen make showstatus to true
         else if (_tabController.index == 2) {
           showfab.value = true;
           currentindex.value = 2;
@@ -113,12 +115,13 @@ class _HomePageState extends State<HomePage>
         children: [
           const CameraScreen(),
           ChatScreen(),
-          const StatusScreen(),
+          StatusScreen(),
           const CallsScreen(),
         ],
       ),
     );
   }
+
 //custom search bar containing textfield,and prefix and suffix button
   AppBar buildSearchBar() {
     TextEditingController textEditingController = TextEditingController();
@@ -135,7 +138,7 @@ class _HomePageState extends State<HomePage>
             errorBorder: InputBorder.none,
             disabledBorder: InputBorder.none,
             //contentPadding:
-              //  const EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+            //  const EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
             hintText: "Search..",
             prefixIcon: IconButton(
               onPressed: () {
@@ -150,6 +153,7 @@ class _HomePageState extends State<HomePage>
           ),
         ));
   }
+
 //default app bar show title,and menu and search button
   AppBar buildDefaultAppBAr(
       double devicewidth, double cameraWidth, double normalWidth) {

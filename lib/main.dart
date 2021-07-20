@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:whatsappclone/models/providers/user_provider.dart';
+
 import 'package:whatsappclone/initialbindings.dart';
+import 'package:whatsappclone/models/providers/user_provider.dart';
 
 import 'Pages/homepage.dart';
 

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+
 import 'package:whatsappclone/controllers/chatcontroller.dart';
 import 'package:whatsappclone/models/chatitemmodel.dart';
 import 'package:whatsappclone/models/user_model.dart';

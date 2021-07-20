@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
+import 'package:whatsappclone/controllers/chatcontroller.dart';
 import 'package:whatsappclone/models/chatitemmodel.dart';
 import 'package:whatsappclone/uis/circularimage.dart';
-import 'package:whatsappclone/controllers/chatcontroller.dart';
 
 //Chat Screen
 class ChatScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class ChatScreen extends StatelessWidget {
         return const Center(
           child: Text("No Chats Yet"),
         );
-      } 
+      }
       //when chat list is not empty show all chats
       else if (chatController.chatUserList.isNotEmpty) {
         return Padding(
@@ -120,7 +121,7 @@ class ChatScreen extends StatelessWidget {
             },
           ),
         );
-      } 
+      }
       //when api being called wait and show circular bar
       else {
         return Center(
@@ -128,8 +129,11 @@ class ChatScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              CircularProgressIndicator(),
-              Text("Loading Messages")
+              CircularProgressIndicator(color: Colors.teal,),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("Loading Messages"),
+              )
             ],
           ),
         );
