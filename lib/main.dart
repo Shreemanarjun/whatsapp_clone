@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
 import 'package:whatsappclone/initialbindings.dart';
 import 'package:whatsappclone/models/providers/user_provider.dart';
 import 'package:whatsappclone/pages/camerascreen.dart';
@@ -12,7 +12,13 @@ import 'Pages/homepage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  SystemChrome.setEnabledSystemUIOverlays(
+      [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+  var modes = await FlutterDisplayMode.supported;
+  modes.forEach(print);
+  await FlutterDisplayMode.setHighRefreshRate().catchError((e) => print(e));
+  final DisplayMode m = await FlutterDisplayMode.preferred;
+  print(m);
   //run flutter app
   runApp(const MyApp());
 }

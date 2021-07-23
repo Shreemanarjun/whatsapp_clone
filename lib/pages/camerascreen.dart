@@ -10,7 +10,7 @@ class CameraScreen extends StatelessWidget {
     return Scaffold(
       body: CameraCamera(
           resolutionPreset: ResolutionPreset.ultraHigh,
-          onFile: (file) => print(file)),
+          onFile: (file) {}),
     );
   }
 }

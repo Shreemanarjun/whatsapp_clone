@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:whatsappclone/controllers/chatcontroller.dart';
 import 'package:whatsappclone/models/chatitemmodel.dart';
 import 'package:whatsappclone/pages/mywpstatus.dart';
@@ -15,7 +13,7 @@ class StatusScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(top: 0),
-        child: ListView(shrinkWrap: true, children: [
+        child: ListView(shrinkWrap: false, children: [
           // User oWn Profile
           buildStatusProfileCard(),
           const Padding(
@@ -43,51 +41,51 @@ class StatusScreen extends StatelessWidget {
   Container buildUserStatusList({bool isRecent = false}) {
     return Container(
         padding: const EdgeInsets.only(top: 0),
-        child: ListView.builder(
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          itemCount: chatController.chatUserList.length,
-          itemBuilder: (context, index) {
-            ChatItemModel chatItem = chatController.chatUserList[index];
-            return Padding(
-              padding: const EdgeInsets.only(top: 1.0),
-              child: ListTile(
-                tileColor: Colors.white,
-                onTap: () {
-                  // print(index);
-                },
-                leading: Stack(
-                  children: [
-                    isRecent
-                        ? Container(
-                            decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.teal, width: 3),
-                                shape: BoxShape.circle),
-                            child: CircleAvatar(
-                              maxRadius: 30,
-                              backgroundImage: NetworkImage(
-                                chatItem.pictureurl,
+        child: Obx(() => ListView.builder(
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
+              itemCount: chatController.chatUserList.length,
+              itemBuilder: (context, index) {
+                ChatItemModel chatItem = chatController.chatUserList[index];
+                return Padding(
+                  padding: const EdgeInsets.only(top: 1.0),
+                  child: ListTile(
+                    tileColor: Colors.white,
+                    onTap: () {
+                      // print(index);
+                    },
+                    leading: Stack(
+                      children: [
+                        isRecent
+                            ? Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.teal, width: 3),
+                                    shape: BoxShape.circle),
+                                child: CircleAvatar(
+                                  maxRadius: 30,
+                                  backgroundImage: NetworkImage(
+                                    chatItem.pictureurl,
+                                  ),
+                                ),
+                              )
+                            : CircleAvatar(
+                                maxRadius: 30,
+                                backgroundImage: NetworkImage(
+                                  chatItem.pictureurl,
+                                ),
                               ),
-                            ),
-                          )
-                        : CircleAvatar(
-                            maxRadius: 30,
-                            backgroundImage: NetworkImage(
-                              chatItem.pictureurl,
-                            ),
-                          ),
-                  ],
-                ),
-                title: Text(
-                  chatItem.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text("Today ,${chatItem.time}"),
-              ),
-            );
-          },
-        ));
+                      ],
+                    ),
+                    title: Text(
+                      chatItem.name,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text("Today ,${chatItem.time}"),
+                  ),
+                );
+              },
+            )));
   }
 
   Card buildStatusProfileCard() {
