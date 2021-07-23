@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
+
 import 'package:whatsappclone/controllers/chatcontroller.dart';
 import 'package:whatsappclone/models/chatitemmodel.dart';
 
@@ -10,7 +12,7 @@ class CallsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: const EdgeInsets.all(8), child: buildCallList());
+    return Padding(padding: const EdgeInsets.only(top:0), child: buildCallList());
   }
 
   buildCallList() {
@@ -30,7 +32,7 @@ class CallsScreen extends StatelessWidget {
                     leading: Stack(
                       children: [
                         CircleAvatar(
-                          maxRadius: 35,
+                          maxRadius: 30,
                           backgroundImage: NetworkImage(
                             chatItem.pictureurl,
                           ),

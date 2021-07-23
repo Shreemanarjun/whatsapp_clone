@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:whatsappclone/controllers/chatcontroller.dart';
 import 'package:whatsappclone/models/chatitemmodel.dart';
 import 'package:whatsappclone/uis/circularimage.dart';
@@ -42,10 +40,10 @@ class ChatScreen extends StatelessWidget {
                             children: <Widget>[
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
                                   Expanded(
-                                    flex: 6,
+                                    flex: 5,
                                     child: Padding(
                                       padding: const EdgeInsets.only(left: 5),
                                       child: Text(
@@ -57,7 +55,7 @@ class ChatScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Expanded(
-                                    flex: 2,
+                                    flex: 1,
                                     child: Text(
                                       chatItem.time,
                                       style: const TextStyle(
