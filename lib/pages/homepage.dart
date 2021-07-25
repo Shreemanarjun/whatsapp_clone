@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:get/get.dart';
 
 import 'callscreen.dart';
@@ -209,15 +208,10 @@ class _HomePageState extends State<HomePage>
             searchClicked.value = true;
           },
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 5.0),
-        ),
+
         //popup menu when more setting clicked
         PopupMenuButton(
-          icon: const Padding(
-            padding: EdgeInsets.only(right: 10),
-            child: Icon(Icons.more_vert),
-          ),
+          icon: const Icon(Icons.more_vert),
           itemBuilder: (context) => [
             const PopupMenuItem<int>(
               value: 0,

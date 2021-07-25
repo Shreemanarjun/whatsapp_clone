@@ -21,100 +21,107 @@ class ChatScreen extends StatelessWidget {
       //when chat list is not empty show all chats
       else if (chatController.chatUserList.isNotEmpty) {
         return Padding(
-          padding: const EdgeInsets.only(top: 0),
+          padding: const EdgeInsets.only(top: 5),
           child: ListView.builder(
             itemCount: chatController.chatUserList.length,
             itemBuilder: (context, index) {
               ChatItemModel chatItem = chatController.chatUserList[index];
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: Row(
-                      children: <Widget>[
-                        CircularImage(chatItem.pictureurl),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  Expanded(
-                                    flex: 5,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 5),
-                                      child: Text(
-                                        chatItem.name,
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 15.0),
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 5),
+                      child: Row(
+                        children: <Widget>[
+                          CircularImage(chatItem.pictureurl),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 5,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 8,top:2),
+                                        child: Text(
+                                          chatItem.name,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 16.0),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      chatItem.time,
-                                      style: const TextStyle(
-                                          color: Colors.black45),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top:2),
+                                        child: Text(
+                                          chatItem.time,
+                                          style: const TextStyle(
+                                              color: Colors.black45),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 2.0, left: 12),
-                                    child: Text(
-                                      "Hi",
-                                      style: TextStyle(
-                                          color: Colors.black45,
-                                          fontSize: 16.0),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.only(top: 2.0, left: 12),
+                                      child: Text(
+                                        "Hi",
+                                        style: TextStyle(
+                                            color: Colors.black45,
+                                            fontSize: 16.0),
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        right: 25, top: 5),
-                                    child: SizedBox(
-                                      height: 30,
-                                      width: 30,
-                                      child: Stack(children: <Widget>[
-                                        Positioned(
-                                          top: 0,
-                                          right: 0,
-                                          child: Container(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 6, vertical: 4),
-                                            decoration: const BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Color(0xff25D366)),
-                                            alignment: Alignment.center,
-                                            child: const Text(
-                                              '1',
-                                              style: TextStyle(
-                                                  color: Colors.white),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 25, top: 5),
+                                      child: SizedBox(
+                                        height: 30,
+                                        width: 30,
+                                        child: Stack(children: <Widget>[
+                                          Positioned(
+                                            top: 0,
+                                            right: 0,
+                                            child: Container(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 6,
+                                                      vertical: 4),
+                                              decoration: const BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Color(0xff25D366)),
+                                              alignment: Alignment.center,
+                                              child: const Text(
+                                                '1',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
                                             ),
-                                          ),
-                                        )
-                                      ]),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
+                                          )
+                                        ]),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  const Divider(),
-                ],
+                  ],
+                ),
               );
             },
           ),

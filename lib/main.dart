@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
 import 'package:whatsappclone/initialbindings.dart';
 import 'package:whatsappclone/models/providers/user_provider.dart';
 import 'package:whatsappclone/pages/camerascreen.dart';
@@ -16,11 +14,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIOverlays(
       [SystemUiOverlay.bottom, SystemUiOverlay.top]);
- // var modes = await FlutterDisplayMode.supported;
- 
+  // var modes = await FlutterDisplayMode.supported;
+
   await FlutterDisplayMode.setHighRefreshRate();
   //final DisplayMode m = await FlutterDisplayMode.preferred;
- // print(m);
+  // print(m);
   //run flutter app
   runApp(const MyApp());
 }
@@ -35,12 +33,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Whatsapp Clone',
       debugShowCheckedModeBanner: false,
+      //showPerformanceOverlay: true,
       //whatsapp specific color declaration
       theme: ThemeData(
           primaryColor: const Color(0xff075E54),
           colorScheme: ThemeData()
               .colorScheme
               .copyWith(secondary: const Color(0xff25D366))),
+
       //responsive framework for showing same design in al device
       builder: (context, widget) => ResponsiveWrapper.builder(widget,
           maxWidth: 1200,

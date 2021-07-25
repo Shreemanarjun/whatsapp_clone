@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:whatsappclone/controllers/chatcontroller.dart';
-import 'package:whatsappclone/models/chatitemmodel.dart';
 import 'package:whatsappclone/pages/mywpstatus.dart';
 
 //Sttau screen
@@ -15,77 +12,79 @@ class StatusScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.only(top: 0),
-        child: ListView(shrinkWrap: false, children: [
-          // User oWn Profile
-          buildStatusProfileCard(),
-          const Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Text(
-              "Recent Updates",
-              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+        child: ListView(
+          shrinkWrap: true,
+          primary: false,
+          children: [
+            // User oWn Profile
+            buildStatusProfileCard(),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                "Recent Updates",
+                style:
+                    TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          //Recent Update List of Users
-          buildUserStatusList(isRecent: true),
-          const Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Text(
-              "Viewed Updates",
-              style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+            //Recent Update List of Users
+            buildStatusList(isRecent: true),
+            const Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                "Viewed Updates",
+                style:
+                    TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          //Recent Update List of Users
-          buildUserStatusList(isRecent: false),
-        ]));
+            //Recent Update List of Users
+            buildStatusList(isRecent: false),
+          ],
+        ));
   }
 
-//same list for both recent or viewed list
-   buildUserStatusList({bool isRecent = false}) {
-    return Obx(() => ListView.builder(
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          itemCount: chatController.chatUserList.length,
-          itemBuilder: (context, index) {
-            ChatItemModel chatItem = chatController.chatUserList[index];
-            return Padding(
-              padding: const EdgeInsets.only(top: 1.0),
-              child: ListTile(
-                tileColor: Colors.white,
-                onTap: () {
-                  // print(index);
-                },
-                leading: Stack(
-                  children: [
-                    isRecent
-                        ? Container(
-                            decoration: BoxDecoration(
-                              
-                                border: Border.all(
-                                    color: Colors.teal, width: 3),
-                                shape: BoxShape.circle),
-                            child: CircleAvatar(
-                              maxRadius: 30,
-                              backgroundImage: NetworkImage(
-                                chatItem.pictureurl,
+  buildStatusList({bool isRecent = false}) {
+    return Obx(() => Column(
+          children: chatController.chatUserList
+              .map(
+                (chatItem) {
+                  return ListTile(
+                    tileColor: Colors.white,
+                    onTap: () {
+                      // print(index);
+                    },
+                    leading: Stack(
+                      children: [
+                        isRecent
+                            ? Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.teal, width: 3),
+                                    shape: BoxShape.circle),
+                                child: CircleAvatar(
+                                  maxRadius: 25,
+                                  backgroundImage: NetworkImage(
+                                    chatItem.pictureurl,
+                                  ),
+                                ),
+                              )
+                            : CircleAvatar(
+                                maxRadius: 25,
+                                backgroundImage: NetworkImage(
+                                  chatItem.pictureurl,
+                                ),
                               ),
-                            ),
-                          )
-                        : CircleAvatar(
-                            maxRadius: 30,
-                            backgroundImage: NetworkImage(
-                              chatItem.pictureurl,
-                            ),
-                          ),
-                  ],
-                ),
-                title: Text(
-                  chatItem.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text("Today, ${chatItem.time}"),
-              ),
-            );
-          },
+                      ],
+                    ),
+                    title: Text(
+                      chatItem.name,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text("Today, ${chatItem.time}"),
+                  );
+                },
+              )
+              .skip(10)
+              .toList(),
         ));
   }
 
