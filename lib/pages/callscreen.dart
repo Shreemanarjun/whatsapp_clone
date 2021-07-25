@@ -17,7 +17,7 @@ class CallsScreen extends StatelessWidget {
 
   buildCallList() {
     return Container(
-        padding: const EdgeInsets.only(top: 5),
+        padding: const EdgeInsets.only(top: 0),
         child: Obx(() => ListView.builder(
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),

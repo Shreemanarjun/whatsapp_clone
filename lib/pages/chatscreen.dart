@@ -21,7 +21,7 @@ class ChatScreen extends StatelessWidget {
       //when chat list is not empty show all chats
       else if (chatController.chatUserList.isNotEmpty) {
         return Padding(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 0),
           child: ListView.builder(
             itemCount: chatController.chatUserList.length,
             itemBuilder: (context, index) {
