@@ -1,1 +1,1 @@
-### WhatsApp Clone Made Using FLutter
+### WhatsApp Clone Made Using Flutter
